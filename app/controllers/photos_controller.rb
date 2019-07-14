@@ -31,7 +31,6 @@ class PhotosController < ApplicationController
         format.all do
           gon.preloads[:person] = @presenter.as_json
           gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
-          gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
           render "people/show", layout: "with_header"
         end
         format.mobile { render "people/show" }
@@ -120,7 +119,7 @@ class PhotosController < ApplicationController
       file_name = params[:qqfile]
       # get file content type
       att_content_type = request.content_type.to_s == "" ? "application/octet-stream" : request.content_type.to_s
-      # create tempora##l file
+      # create temporal file
       file = Tempfile.new(file_name, encoding: "BINARY")
       # put data into this file from raw post request
       file.print request.raw_post.force_encoding("BINARY")
@@ -154,12 +153,7 @@ class PhotosController < ApplicationController
         current_user.dispatch_post(@photo, to: photo_params[:aspect_ids])
       end
 
-      if photo_params[:set_profile_photo]
-        profile_params = {image_url:        @photo.url(:thumb_large),
-                          image_url_medium: @photo.url(:thumb_medium),
-                          image_url_small:  @photo.url(:thumb_small)}
-        current_user.update_profile(profile_params)
-      end
+      current_user.update_profile(photo: @photo) if photo_params[:set_profile_photo]
 
       respond_to do |format|
         format.json { render(layout: false, json: {"success" => true, "data" => @photo}.to_json) }

@@ -6,7 +6,6 @@
 
 class Photo < ApplicationRecord
   include Diaspora::Federated::Base
-  include Diaspora::Commentable
   include Diaspora::Shareable
 
   # NOTE API V1 to be extracted
@@ -20,7 +19,8 @@ class Photo < ApplicationRecord
       {
         small:  photo.url(:thumb_small),
         medium: photo.url(:thumb_medium),
-        large:  photo.url(:scaled_full)
+        large:  photo.url(:scaled_full),
+        raw:    photo.url
       }
     }, :as => :sizes
     t.add lambda { |photo|
