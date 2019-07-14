@@ -1,3 +1,129 @@
+# 0.7.12.0
+
+## Refactor
+* Harmonize markdown titles sizes [#8029](https://github.com/diaspora/diaspora/pull/8029)
+
+## Bug fixes
+* Improve handling of mixed case hostnames while fetching OpenGraph data [#8021](https://github.com/diaspora/diaspora/pull/8021)
+* Fix "remember me" with two factor authentication enabled [#8031](https://github.com/diaspora/diaspora/pull/8031)
+
+## Features
+* Add line mentioning diaspora\* on the splash page [#7966](https://github.com/diaspora/diaspora/pull/7966)
+* Improve communication about signing up on closed pods [#7896](https://github.com/diaspora/diaspora/pull/7896)
+
+# 0.7.11.0
+
+## Refactor
+* Enable paranoid mode for devise [#8003](https://github.com/diaspora/diaspora/pull/8003)
+* Refactor likes cucumber test [#8002](https://github.com/diaspora/diaspora/pull/8002)
+
+## Bug fixes
+* Fix old photos without remote url for export [#8012](https://github.com/diaspora/diaspora/pull/8012)
+
+## Features
+* Add a manifest.json file as a first step to make diaspora\* a Progressive Web App [#7998](https://github.com/diaspora/diaspora/pull/7998)
+* Allow `web+diaspora://` links to link to a profile with only the diaspora ID [#8000](https://github.com/diaspora/diaspora/pull/8000)
+* Support TOTP two factor authentication [#7751](https://github.com/diaspora/diaspora/pull/7751)
+
+# 0.7.10.0
+
+## Refactor
+* Replace dandelion.jpg with a public domain photo [#7976](https://github.com/diaspora/diaspora/pull/7976)
+
+## Bug fixes
+* Fix incorrect post sorting on tag streams and tag searches for tags containing the word "activity" [#7959](https://github.com/diaspora/diaspora/issues/7959)
+
+# 0.7.9.0
+
+## Refactor
+* Improve public stream performance and cleanup unused indexes [#7944](https://github.com/diaspora/diaspora/pull/7944)
+* Improve wording of "Toggle mobile" [#7926](https://github.com/diaspora/diaspora/pull/7926)
+
+## Bug fixes
+* Do not autofollow back a user you are ignoring [#7913](https://github.com/diaspora/diaspora/pull/7913)
+* Fix photos gallery when too many thumbnails are shown [#7943](https://github.com/diaspora/diaspora/pull/7943)
+* Fix extended profile visibility switch showing the wrong state [#7955](https://github.com/diaspora/diaspora/pull/7955)
+
+## Features
+* Support ignore users on mobile [#7884](https://github.com/diaspora/diaspora/pull/7884)
+
+# 0.7.8.0
+
+## Refactor
+* Make setting up a development environment 9001% easier by adding a Docker-based setup [#7870](https://github.com/diaspora/diaspora/pull/7870)
+* Improve `web+diaspora://` handler description [#7909](https://github.com/diaspora/diaspora/pull/7909)
+* Move comment timestamp next to author name [#7905](https://github.com/diaspora/diaspora/pull/7905)
+* Sharpen small and medium thumbnails [#7924](https://github.com/diaspora/diaspora/pull/7924)
+* Show full-res image in Desktop's full-screen image view [#7890](https://github.com/diaspora/diaspora/pull/7890)
+
+## Bug fixes
+* Ignore invalid URLs for camo [#7922](https://github.com/diaspora/diaspora/pull/7922)
+* Unliking a post did not update the participation icon without a reload [#7882](https://github.com/diaspora/diaspora/pull/7882)
+* Fix broken Instagram embedding [#7920](https://github.com/diaspora/diaspora/pull/7920)
+
+## Features
+* Add the ability to assign roles in the admin panel [#7868](https://github.com/diaspora/diaspora/pull/7868)
+* Improve memory usage with libjemalloc if available [#7919](https://github.com/diaspora/diaspora/pull/7919)
+
+# 0.7.7.1
+
+Fixes a potential cross-site scripting issue with maliciously crafted OpenGraph metadata on the mobile interface.
+
+# 0.7.7.0
+
+## Refactor
+* Remove mention of deprecated `statistic.json` [#7867](https://github.com/diaspora/diaspora/pull/7867)
+* Add quotes in `database.yml.example` to fields that may contain special characters [#7875](https://github.com/diaspora/diaspora/pull/7875)
+* Removed broken, and thus deprecated, Facebook integration [#7874](https://github.com/diaspora/diaspora/pull/7874)
+
+## Bug fixes
+* Add compatibility with macOS to `script/configure_bundler` [#7830](https://github.com/diaspora/diaspora/pull/7830)
+* Fix comment and like notifications on posts without text [#7857](https://github.com/diaspora/diaspora/pull/7857) [#7853](https://github.com/diaspora/diaspora/pull/7853)
+* Fix issue with some language fallbacks not working correctly [#7861](https://github.com/diaspora/diaspora/pull/7861)
+* Make sure URLs are encoded before sending them to camo [#7871](https://github.com/diaspora/diaspora/pull/7871)
+
+## Features
+* Add `web+diaspora://` link handler [#7826](https://github.com/diaspora/diaspora/pull/7826)
+
+# 0.7.6.0
+
+## Refactor
+* Add unique index to poll participations on `poll_id` and `author_id` [#7798](https://github.com/diaspora/diaspora/pull/7798)
+* Add 'completed at' date to account migrations [#7805](https://github.com/diaspora/diaspora/pull/7805)
+* Handle duplicates for TagFollowing on account merging [#7807](https://github.com/diaspora/diaspora/pull/7807)
+* Add link to the pod in the email footer [#7814](https://github.com/diaspora/diaspora/pull/7814)
+
+## Bug fixes
+* Fix compatibility with newer glibc versions [#7828](https://github.com/diaspora/diaspora/pull/7828)
+* Allow fonts to be served from asset host in CSP [#7825](https://github.com/diaspora/diaspora/pull/7825)
+
+## Features
+* Support fetching StatusMessage by Poll GUID [#7815](https://github.com/diaspora/diaspora/pull/7815)
+* Always include link to diaspora in facebook cross-posts [#7774](https://github.com/diaspora/diaspora/pull/7774)
+
+# 0.7.5.0
+
+## Refactor
+* Remove the 'make contacts in this aspect visible to each other' option [#7769](https://github.com/diaspora/diaspora/pull/7769)
+* Remove the requirement to have at least two users to disable the /podmin redirect [#7783](https://github.com/diaspora/diaspora/pull/7783)
+* Randomize start times of daily Sidekiq-Cron jobs [#7787](https://github.com/diaspora/diaspora/pull/7787)
+
+## Bug fixes
+* Prefill conversation form on contacts page only with mutual contacts [#7744](https://github.com/diaspora/diaspora/pull/7744)
+* Fix profiles sometimes not loading properly in background tabs [#7740](https://github.com/diaspora/diaspora/pull/7740)
+* Show error message when creating posts with invalid aspects [#7742](https://github.com/diaspora/diaspora/pull/7742)
+* Fix mention syntax backport for two immediately consecutive mentions [#7777](https://github.com/diaspora/diaspora/pull/7777)
+* Fix link to 'make yourself an admin' [#7783](https://github.com/diaspora/diaspora/pull/7783)
+* Fix calculation of content lengths when cross-posting to twitter [#7791](https://github.com/diaspora/diaspora/pull/7791)
+
+## Features
+* Make public stream accessible for logged out users [#7775](https://github.com/diaspora/diaspora/pull/7775)
+* Add account-merging support when receiving an account migration [#7803](https://github.com/diaspora/diaspora/pull/7803)
+
+# 0.7.4.1
+
+Fixes a possible cross-site scripting issue with maliciously crafted OpenGraph metadata.
+
 # 0.7.4.0
 
 ## Refactor
